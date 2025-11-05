@@ -1,0 +1,64 @@
+@testblackduck_HostAddress = http://localhost:5000
+
+# Weather API (original)
+GET {{testblackduck_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+# Products API Tests
+
+# Get all products
+GET {{testblackduck_HostAddress}}/api/products
+Accept: application/json
+
+###
+
+# Get product by ID
+GET {{testblackduck_HostAddress}}/api/products/1
+Accept: application/json
+
+###
+
+# Create a new product
+POST {{testblackduck_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Smartphone",
+  "description": "Latest model smartphone",
+  "price": 799.99,
+  "stock": 20
+}
+
+###
+
+# Update a product
+PUT {{testblackduck_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Gaming Laptop Pro",
+  "description": "High-performance gaming laptop with RTX graphics",
+  "price": 1599.99,
+  "stock": 8
+}
+
+###
+
+# Delete a product
+DELETE {{testblackduck_HostAddress}}/api/products/3
+
+###
+
+# Get products in stock
+GET {{testblackduck_HostAddress}}/api/products/in-stock
+Accept: application/json
+
+###
+
+# Get products by price range
+GET {{testblackduck_HostAddress}}/api/products/price-range?minPrice=50&maxPrice=200
+Accept: application/json
+
+###
